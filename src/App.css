@@ -17,10 +17,6 @@ body {
 	margin-top: 80px;
 }
 
-h3 {
-	text-align: left;
-}
-
 .search-box {
 	margin-top: 40px;
 	display: flex;
@@ -32,16 +28,7 @@ h3 {
 	margin-left: 20px;
 }
 
-.error {
-	color: red;
-}
-
 .output {
 	color: rgb(0, 0, 0);
 	text-align-last: center;
-}
-
-h4 {
-	text-align: left;
-	font-size: 1em;
 }
