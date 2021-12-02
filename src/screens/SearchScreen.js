@@ -105,17 +105,18 @@ function SearchScreen() {
 					error
 					id="outlined-error-helper-text"
 				/>
-				<div className="button-wrapper"></div>
-				{spinner ? (
-					<CircularProgress />
-				) : (
-					<Button
-						iconSizeSmall={true}
-						onClick={handleClick}
-						endIcon={<Search />}
-						variant="text"
-					/>
-				)}
+				<div className="button-wrapper">
+					{spinner ? (
+						<CircularProgress />
+					) : (
+						<Button
+							iconSizeSmall={true}
+							onClick={handleClick}
+							endIcon={<Search />}
+							variant="text"
+						/>
+					)}
+				</div>
 			</div>
 			<h1 className="output">{isError ? "" : hebrewDate}</h1>
 		</>
