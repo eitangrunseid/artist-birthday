@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Input, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Button } from "@mui/material";
 import Search from "@mui/icons-material/Search";
 import ApiRequest from "../api/ApiRequest";
 
 import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function SearchScreen() {
@@ -95,29 +94,28 @@ function SearchScreen() {
 
 	return (
 		<>
-			{/* <Input
-				placeholder="Search for an artist name"
-				onChange={(e) => setName(e.target.value)}
-			/> */}
 			<div className="search-box">
 				<TextField
-					id="input-with-icon-textfield"
 					type="search"
 					onChange={(e) => setName(e.target.value)}
 					placeholder="Search for an artist name"
-					style={{ width: 500 }}
+					style={{ width: 500, textAlignLast: "start" }}
 					variant="standard"
 					helperText={isError ? errorMsg : ""}
+					error
+					id="outlined-error-helper-text"
 				/>
-				<div className="button-wrapper">
+				<div className="button-wrapper"></div>
+				{spinner ? (
+					<CircularProgress />
+				) : (
 					<Button
 						iconSizeSmall={true}
 						onClick={handleClick}
 						endIcon={<Search />}
 						variant="text"
 					/>
-					{spinner ? <CircularProgress /> : null}
-				</div>
+				)}
 			</div>
 			<h1 className="output">{isError ? "" : hebrewDate}</h1>
 		</>

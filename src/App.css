@@ -1,17 +1,19 @@
 body {
-	display: flex;
 	background-image: url("../src/assets/img/bg.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: rgb(82, 82, 82);
+	color: #fff;
+	text-align-last: right;
+	margin-right: 60px;
+	font-weight: bold;
 }
 
 .App {
 	text-align: center;
-	width: 600px;
+	width: 100%;
 	margin-top: 80px;
 }
 
@@ -22,7 +24,6 @@ h3 {
 .search-box {
 	margin-top: 40px;
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: center;
 	align-items: center;
 }
@@ -41,6 +42,7 @@ h3 {
 
 .output {
 	color: rgb(0, 0, 0);
+	text-align-last: center;
 }
 
 h4 {
