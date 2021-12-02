@@ -14,12 +14,6 @@ function SearchScreen() {
 	const [isError, setIsError] = useState(false);
 	const [spinner, setSpinner] = useState(false);
 
-	useEffect(() => {
-		if (!name) {
-			setHebrewDate("");
-		}
-	}, [name]);
-
 	const reset = () => {
 		setSpinner(true);
 		setErrorMsg("");
@@ -27,14 +21,14 @@ function SearchScreen() {
 		setHebrewDate("");
 	};
 
-	const getHebrewDate = async (year = "", month = "", day = "") => {
+	const getHebrewDate = async (year = "", month = "", day = "", name) => {
 		const response = await ApiRequest(
 			`https://www.hebcal.com/converter?cfg=json&gy=${year}&gm=${month}&gd=${day}&g2h=1`
 		);
 		const data = response.data;
 
 		if (data) {
-			setHebrewDate(data.hebrew);
+			setHebrewDate(`${name} was born: ${data.hebrew}`);
 			setSpinner(false);
 		}
 
@@ -83,8 +77,9 @@ function SearchScreen() {
 				const day = artistBirthdayArray[2];
 
 				if (year && month && day) {
-					getHebrewDate(year, month, day);
+					getHebrewDate(year, month, day, filteredArtist.name);
 				} else {
+					console.log(filteredArtist);
 					setErrorMsg("please enter an artist name not a band!");
 					setIsError(true);
 					setSpinner(false);
@@ -107,25 +102,24 @@ function SearchScreen() {
 			<div className="search-box">
 				<TextField
 					id="input-with-icon-textfield"
-					label="Search for an artist name"
 					type="search"
 					onChange={(e) => setName(e.target.value)}
-					InputProps={{
-						startAdornment: (
-							<InputAdornment position="start">
-								<Search />
-							</InputAdornment>
-						)
-					}}
+					placeholder="Search for an artist name"
+					style={{ width: 500 }}
 					variant="standard"
-					value={name}
+					helperText={isError ? errorMsg : ""}
 				/>
-				<Button onClick={handleClick} endIcon={<Search />}>
-					Search
-				</Button>
-				{spinner ? <CircularProgress /> : null}
+				<div className="button-wrapper">
+					<Button
+						iconSizeSmall={true}
+						onClick={handleClick}
+						endIcon={<Search />}
+						variant="text"
+					/>
+					{spinner ? <CircularProgress /> : null}
+				</div>
 			</div>
-			<h1>{isError ? errorMsg : hebrewDate}</h1>
+			<h1 className="output">{isError ? "" : hebrewDate}</h1>
 		</>
 	);
 }

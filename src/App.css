@@ -1,14 +1,49 @@
 body {
-	background-color: rgb(155, 179, 255);
+	display: flex;
+	background-image: url("../src/assets/img/bg.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: rgb(82, 82, 82);
 }
 
 .App {
 	text-align: center;
+	width: 600px;
+	margin-top: 80px;
+}
+
+h3 {
+	text-align: left;
 }
 
 .search-box {
 	margin-top: 40px;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	justify-content: center;
+	align-items: center;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+	margin-left: 20px;
+	width: 40px;
+}
+
+.error {
+	color: red;
+}
+
+.output {
+	color: rgb(0, 0, 0);
+}
+
+h4 {
+	text-align: left;
+	font-size: 1em;
 }
