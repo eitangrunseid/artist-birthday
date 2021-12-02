@@ -27,7 +27,7 @@ function SearchScreen() {
 		const data = response.data;
 
 		if (data) {
-			setHebrewDate(`${name} was born: ${data.hebrew}`);
+			setHebrewDate(`${name} was born:  ${data.hebrew}`);
 			setSpinner(false);
 		}
 
