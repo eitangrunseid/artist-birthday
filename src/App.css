@@ -7,18 +7,24 @@ body {
 	background-size: cover;
 	color: #fff;
 	text-align-last: right;
-	margin-right: 60px;
+	margin: 50px 60px 0 0;
 	font-weight: bold;
 }
 
 .App {
 	text-align: center;
 	width: 100%;
-	margin-top: 80px;
+	margin-top: 60px;
+}
+
+.title {
+	text-align-last: auto;
+	color: rgb(90, 122, 207);
+	font-size: 42px;
 }
 
 .search-box {
-	margin-top: 40px;
+	margin-top: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,4 +37,26 @@ body {
 .output {
 	color: rgb(0, 0, 0);
 	text-align-last: center;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		margin: 10px 10px 0 0;
+	}
+	.App {
+		width: 100%;
+		margin-top: 60px;
+	}
+
+	.title {
+		font-size: 20px;
+	}
+
+	.search-box {
+		margin: 70px 20px;
+	}
+
+	.output {
+		font-size: 16px;
+	}
 }
