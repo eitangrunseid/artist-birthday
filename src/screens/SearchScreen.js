@@ -58,8 +58,10 @@ function SearchScreen() {
 
 			const filteredArtist = artistsData.artists.find((artist) => {
 				if (artist.type === "Group") {
+					console.log("group");
 					return artist;
 				} else if (artist.type === "Person") {
+					console.log("person");
 					return (
 						artist.name.toLowerCase() === name.toLowerCase() &&
 						artist.score === 100
@@ -68,6 +70,7 @@ function SearchScreen() {
 			});
 
 			const artistBirthday = filteredArtist["life-span"].begin;
+			console.log("artistBirthday:", artistBirthday);
 
 			if (artistBirthday) {
 				const artistBirthdayArray = artistBirthday.split("-");
@@ -83,6 +86,8 @@ function SearchScreen() {
 					setIsError(true);
 					setSpinner(false);
 				}
+			} else {
+				throw new Error("Invalid artist name");
 			}
 		} catch (error) {
 			console.log(error);
