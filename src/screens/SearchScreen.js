@@ -111,12 +111,7 @@ function SearchScreen() {
 					{spinner ? (
 						<CircularProgress />
 					) : (
-						<Button
-							iconSizeSmall={true}
-							onClick={handleClick}
-							endIcon={<Search />}
-							variant="text"
-						/>
+						<Button onClick={handleClick} endIcon={<Search />} variant="text" />
 					)}
 				</div>
 			</div>
