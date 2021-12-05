@@ -78,7 +78,6 @@ function SearchScreen() {
 				if (year && month && day) {
 					getHebrewDate(year, month, day, filteredArtist.name);
 				} else {
-					console.log(filteredArtist);
 					setErrorMsg("please enter an artist name not a band!");
 					setIsError(true);
 					setSpinner(false);
