@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import Search from "@mui/icons-material/Search";
 import ApiRequest from "../api/ApiRequest";
@@ -12,6 +12,10 @@ function SearchScreen() {
 	const [errorMsg, setErrorMsg] = useState("");
 	const [isError, setIsError] = useState(false);
 	const [spinner, setSpinner] = useState(false);
+
+	useEffect(() => {
+		setIsError(false);
+	}, [name]);
 
 	const reset = () => {
 		setSpinner(true);
