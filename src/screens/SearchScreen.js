@@ -14,7 +14,9 @@ function SearchScreen() {
 	const [spinner, setSpinner] = useState(false);
 
 	useEffect(() => {
-		setIsError(false);
+		if (!name) {
+			setIsError(false);
+		}
 	}, [name]);
 
 	const reset = () => {
